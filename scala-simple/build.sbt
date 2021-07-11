@@ -32,6 +32,5 @@ lazy val compilerOptions = Seq(
   "-encoding", "utf8",
   "-language:implicitConversions",
   "-language:higherKinds",
-  "-language:postfixOps",
-  "-Ypartial-unification"
+  "-language:postfixOps"
 )

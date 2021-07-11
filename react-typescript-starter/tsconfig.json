@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "noEmit": true,
+    "module": "commonjs",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "typeRoots": [
+        "./node_modules/@types",
+        "./types"
+    ],
+    "esModuleInterop": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
