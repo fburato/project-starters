@@ -1,0 +1,8 @@
+FROM docker.io/library/nginx:1.21.6-alpine
+
+ARG VERSION
+
+ENV SERVE_HOME=/usr/share/nginx/html
+
+COPY dist/index.html ${SERVE_HOME}/index.html
+COPY dist/bundle* ${SERVE_HOME}/${VERSION}/

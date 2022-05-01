@@ -1,22 +1,17 @@
-import React, { Component, ReactNode } from "react"
+import React, { ReactElement } from "react"
 
-export class AppView extends Component<AppProps> {
-
-  constructor(props: AppProps) {
-    super(props);
-  }
-
-  render(): ReactNode {
-    return (
+const appView = (props : AppProps) : ReactElement => {
+  return (
+    <div>
+      <div>Welcome to react</div>
       <div>
-        <div>Welcome to react</div>
-        <div>
-          <p>Current counter: {this.props.current}</p>
-          <button onClick={this.props.increment}>Increment</button>
-          <button onClick={this.props.decrement}>Decrement</button>
-          <button onClick={this.props.reset}>Reset</button>
-        </div>
+        <p>Current counter: {props.current}</p>
+        <button onClick={props.increment}>Increment</button>
+        <button onClick={props.decrement}>Decrement</button>
+        <button onClick={props.reset}>Reset</button>
       </div>
-    );
-  }
+    </div>
+  );
 }
+
+export default appView

@@ -13,6 +13,7 @@ module.exports = (env, options) => {
     index = env.indexTemplate
   }
   let apiUrl = "http://localhost:8081"
+  baseUrl = env.cdnUrl ? env.cdnUrl : "" 
   if (env.apiUrl) {
     apiUrl = env.apiUrl
   }
@@ -26,7 +27,7 @@ module.exports = (env, options) => {
        * in dev it is set to be mounted on the root (i.e. http://localhost:8080)
        */
       publicPath:
-        options.mode == "production" ? `${env.cdnUrl}/${env.appVersion}/` : "",
+        options.mode == "production" ? `${baseUrl}/${env.appVersion}/` : "",
       clean: true,
     },
     devtool: "source-map",

@@ -1,12 +1,11 @@
 SHELL := /bin/bash
 
-PROJECT_NAME := flex_promos_client
+PROJECT_NAME := react-redux-starter
 
 .DEFAULT_GOAL := help
 .POSIX=	.POSIX=
 .SUFFIXES=
 
-CDN_URL = https://cdn.com
 
 NPM_IMAGE := node:16.3.0-alpine
 
@@ -25,8 +24,14 @@ localinstall: ## install dependencies
 localrun: ## start webpack dev server on port 8080
 	$(NPM) run start
 
-localbuild: .require-CDN_URL ## builds the application for CDN_URL
+localbuild:
 	$(NPM) run build -- --env cdnUrl=$(CDN_URL)
+
+prodbuild: localbuild
+	docker build --build-arg VERSION=$(VERSION) \
+		   -t $(PROJECT_NAME):$(VERSION) \
+		   -f Dockerfile.prod \
+		   .
 
 
 .require-%:

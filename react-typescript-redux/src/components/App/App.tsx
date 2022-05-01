@@ -1,4 +1,4 @@
-import { AppView } from "./AppView";
+import AppView  from "./AppView";
 import { connect } from "react-redux";
 import { Action, Dispatch } from "@reduxjs/toolkit";
 
