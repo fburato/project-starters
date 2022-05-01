@@ -11,18 +11,25 @@ const decrement: () => Action = () => ({
     type: "counter/decrement"
 })
 
+const setIncrementState: (n: number) => Action = n => ({
+  type: "setIncrement",
+  value: n
+})
+
 const reset: () => Action = () => ({
   type: "counter/reset"
 })
 
 const mapState = (state: State) => ({
-  current: state.counter
+  current: state.counter,
+  incrementAmount: state.incrementAmount
 })
 
 const mapDispatch = (dispatch: Dispatch) => ({
   increment: () => dispatch(increment()),
   decrement: () => dispatch(decrement()),
-  reset: () => dispatch(reset())
+  reset: () => dispatch(reset()),
+  setIncrement: (n: number) => dispatch(setIncrementState(n))
 })
 
 const app = connect(mapState, mapDispatch)(AppView)

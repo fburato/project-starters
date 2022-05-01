@@ -24,10 +24,10 @@ localinstall: ## install dependencies
 localrun: ## start webpack dev server on port 8080
 	$(NPM) run start
 
-localbuild:
+localbuild: ## prepares the distributable for the application
 	$(NPM) run build -- --env cdnUrl=$(CDN_URL)
 
-prodbuild: localbuild
+prodbuild: localbuild ## prepares the docker image to run the application
 	docker build --build-arg VERSION=$(VERSION) \
 		   -t $(PROJECT_NAME):$(VERSION) \
 		   -f Dockerfile.prod \
@@ -40,6 +40,6 @@ prodbuild: localbuild
 		exit 1; \
 	fi
 
-help:
+help: ## prints this help
 	@ grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "%-30s %s\n", $$1, $$2}'
 

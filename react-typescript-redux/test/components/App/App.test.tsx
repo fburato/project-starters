@@ -10,7 +10,7 @@ import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import { Action, applyMiddleware, createStore, Store } from "redux";
 
-const makeAccumulatingReducer = (initialState: State = {counter: 0}) => {
+const makeAccumulatingReducer = (initialState: State = {counter: 0, incrementAmount: 1}) => {
   const actions : Action<string>[] = []
   return {
     reducer: (state: State = initialState, action: Action<string>) => {
@@ -39,7 +39,7 @@ describe("<App />", () => {
   it("should render the state counter", () => {
     const counterValue = 42
 
-    app = render(<Provider store={createStore(makeAccumulatingReducer({counter: counterValue}).reducer)}>
+    app = render(<Provider store={createStore(makeAccumulatingReducer({counter: counterValue, incrementAmount: 1}).reducer)}>
       <App />
     </Provider>)
 

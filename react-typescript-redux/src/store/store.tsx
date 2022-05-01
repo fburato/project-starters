@@ -3,14 +3,16 @@ import { AnyAction } from "@reduxjs/toolkit";
 import thunk from 'redux-thunk'
 
 
-const rootReducer = (state: State = { counter: 0 }, action: AnyAction): State => {
+const rootReducer = (state: State = { counter: 0, incrementAmount: 1 }, action: AnyAction): State => {
   switch (action.type) {
     case "counter/increment":
-      return { counter: state.counter + 1 }
+      return { ...state, counter: state.counter + state.incrementAmount }
     case "counter/decrement":
-      return { counter: state.counter - 1 }
+      return { ...state,  counter: state.counter - state.incrementAmount }
     case "counter/reset":
-      return { counter: 0 }
+      return { ...state, counter: 0 }
+    case "setIncrement":
+      return {...state, incrementAmount: action.value as number}
     default:
       return state
   }
