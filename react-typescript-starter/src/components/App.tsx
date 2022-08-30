@@ -1,21 +1,9 @@
-import React, { Component, ReactNode } from "react";
+import React from "react";
 
-class App extends Component<Record<string, never>, AppState> {
+const app = () => (
+  <div>
+    <div>Welcome to react</div>
+  </div>
+)
 
-  constructor(props: Record<string, never>) {
-    super(props);
-    this.state = {
-      isLoaded: false
-    };
-  }
-
-  render(): ReactNode {
-    return (
-      <div>
-        <div>Welcome to react</div>
-      </div>
-    );
-  }
-}
-
-export default App;
+export default app;

@@ -38,7 +38,7 @@ module.exports = (env, options) => {
     },
     devServer: { 
       port: 8080,
-      contentBase: path.join(__dirname, "src"),
+      static: path.join(__dirname, "src"),
       /**
        * The proxy configuration allows to redirect the call performed to the `/api` path to
        * another server running in the same machine at the apiUrl provided (default http://localhost:8081). 

@@ -8,25 +8,27 @@ PROJECT_NAME := flex_promos_client
 
 CDN_URL = https://cdn.com
 
-NPM_IMAGE := node:16.3.0-alpine
+NPM_IMAGE := node:18.8.0-alpine
 
 VERSION = $(shell grep '"version"' package.json | sed 's/.*"\([[:digit:]]\.[[:digit:]]\.[[:digit:]]\)".*/\1/g')
 
-NPM=docker run --rm \
+BUILD_DOCKER=docker run --rm \
 		-p 8080:8080 \
 		--workdir /app \
 		-v $(PWD):/app $(NPM_IMAGE) \
-		npm
+		yarn
+
+BUILD=yarn
 
 # local targets
 localinstall: ## install dependencies
-	$(NPM) install
+	$(BUILD) install
 
 localrun: ## start webpack dev server on port 8080
-	$(NPM) run start
+	$(BUILD) run start
 
 localbuild: .require-CDN_URL ## builds the application for CDN_URL
-	$(NPM) run build -- --env cdnUrl=$(CDN_URL)
+	$(BUILD) run build -- --env cdnUrl=$(CDN_URL)
 
 
 .require-%:
