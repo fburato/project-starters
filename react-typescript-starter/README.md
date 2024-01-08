@@ -1,62 +1,46 @@
-# React starter typescript
+# Getting Started with Create React App
 
-Project bootstrap for react application written in [typescript](https://www.typescriptlang.org/) and uses the following technologies:
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-- [react](https://reactjs.org/): user interface library.
-- [webpack](https://webpack.js.org/): build and development environment.
-- [babel](https://babeljs.io/): transpiler to ES5.
-- [eslint](https://eslint.org/): linter for the source code.
-- [jest](https://jestjs.io/): testing framework.
-- [enzyme](https://enzymejs.github.io/enzyme/): testing library for React component testing.
+## Available Scripts
 
-## Development
+In the project directory, you can run:
 
-### Requirements
+### `yarn start`
 
-In order to build and develop this application you need to have installed `node` and `npm`. To install them, run
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-```bash
-brew install node
-```
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-### Run typescript compiler
+### `yarn test`
 
-Execute the following command:
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-```bash
-npm run compile
-```
+### `yarn build`
 
-### Running the application
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-To run the application, execute
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-```bash
-npm install
-npm run start
-```
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-alternatively, the application can be started in a docker container using the Makefile targets `localinstall` and `localrun`.
+### `yarn eject`
 
-```bash
-make localinstall
-make localrun
-```
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-### Build the artifact for deployment in the CDN
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Execute the Makefile target `localbuild` indicating the base URL for the mountpoint in the CDN:
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-```bash
-CDN_URL=https://foobar/app make localbuild
-```
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-The URL for serving the application will be `CDN_URL/<VERSION>`
+## Learn More
 
-### Run tests
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-Execute the following command:
-
-```bash
-npm run test
-```
+To learn React, check out the [React documentation](https://reactjs.org/).

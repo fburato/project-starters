@@ -1,1 +1,0 @@
-// file to type the globals in the window object
