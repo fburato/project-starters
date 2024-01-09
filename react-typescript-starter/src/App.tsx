@@ -1,12 +1,10 @@
 import './App.css';
-import { useRSocket } from './providers/RSocketProvider';
+import React from 'react'
 
 const App = () => {
-  const rsocketState = useRSocket()
-  const body = rsocketState.ready ? (<div>Ready</div>) : (<div>Not Ready</div>)
   return (
     <div className="App">
-      {body}
+      <div>hello react</div>
     </div>
   );
 }
